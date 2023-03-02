@@ -1,14 +1,23 @@
 import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
+
 import s from './Header.module.scss'
 
+
 function Header() {
+    
     const navigate = useNavigate()
+    const [viewCategoryMenu, setViewCategoryMenu] = React.useState(false)
     const [viewMobileMenu, setViewMobileMenu] = React.useState(false)
     const [windowSize, setWindowSize] = React.useState([
         window.innerWidth,
         window.innerHeight,
-      ]);
+    ]);
+
+    const onClose = () => {
+        setViewCategoryMenu(false);
+    };
     
 
     React.useEffect(() => {
@@ -21,6 +30,51 @@ function Header() {
         return () => {window.removeEventListener('resize', handleWindowResize);};
     });
 
+    function Category ({ opened, onClose }) {
+
+        if (!opened) return null;
+    
+        return (
+            <>
+            <div className={s.category}>  
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Всё меню</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Закуски и салаты</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Горячее</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Супы</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Хлеб</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Витрина</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Дессерты</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Карта бара</div>
+            </div>
+            <div className={s.bg} onClick={onClose}></div>
+            </>
+        )
+    }
+
     const mobile_menu = () => {
         return (
             <div className={s.mobile_wrapper} onClick={() => {setViewMobileMenu(false)}}>
@@ -31,8 +85,8 @@ function Header() {
                     }  
                     }>Главная</div>
                     <div className={s.mobile_menuu} onClick={() => {
-                        navigate('/menu')
                         setViewMobileMenu(false)
+                        setViewCategoryMenu((v) => !v) 
                     }  
                     }>Меню</div>
                     <div className={s.mobile_deliver} onClick={() => {
@@ -56,28 +110,58 @@ function Header() {
                     }  
                     }>О ресторане</div>
                 </div>
+
             </div>
         )
     }   
     
-    
+
     if (windowSize[0] >= 600) {
         return (
-            <header className={s.header}>
-                <div className={s.main}>Главная</div>
-                <div className={s.menu}>Меню</div>
-                <div className={s.deliver}>Доставка и оплата</div>
-                <div className={s.news}>Новости</div>
-                <div className={s.contact}>Контакты</div>
-                <div className={s.about}>О ресторане</div>
-            </header>
+            <>  
+                <section className={s.header_place}></section>
+                <header className={s.header} >
+                    <div className={s.main} onClick={() => {
+                        navigate('/')
+                        setViewMobileMenu(false)
+                    }  
+                       }>Главная</div>
+                    <div className={s.menu} onClick={() => {
+                            setViewMobileMenu(false)
+                            setViewCategoryMenu((v) => !v)  
+                        }  
+                        }>Меню</div>
+                    <div className={s.deliver} onClick={() => {
+                        navigate('/deliver')
+                        setViewMobileMenu(false)
+                    }  
+                        }>Доставка и оплата</div>
+                    <div className={s.news} onClick={() => {
+                        navigate('/news')
+                        setViewMobileMenu(false)
+                    }  
+                        }>Новости</div>
+                    <div className={s.contact} onClick={() => {
+                        navigate('/contact')
+                        setViewMobileMenu(false)
+                    }  
+                        }>Контакты</div>
+                    <div className={s.about} onClick={() => {
+                        navigate('/about')
+                        setViewMobileMenu(false)
+                    }  
+                        }>О ресторане</div>
+                </header>
+
+                <Category opened={viewCategoryMenu} onClose={onClose} />
+            </>
         )
     } else if (windowSize[0] < 600) {
         return (
             <header className={s.mobile}>
-                <div>{viewMobileMenu}</div>
                 <div className={s.mobile_menu} onClick={() => {setViewMobileMenu(!viewMobileMenu)}}><div></div><div></div><div></div></div>
                 {viewMobileMenu && mobile_menu()}
+                <Category opened={viewCategoryMenu} onClose={onClose} />
             </header>
         )
     }

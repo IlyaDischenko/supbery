@@ -1,0 +1,40 @@
+.main {
+    height: 100vh;
+    width: 100%;
+
+    padding: 80px 16px 10px;
+    // background-image: url("https://chef.ru/wp-content/uploads/2022/02/img_8759-scaled.jpg");
+    // background-image: url("./../../images/mainPhoto2.jpg");
+    // background-repeat: repeat;
+    // background-position: bottom center;
+    // background-size: contain;
+    
+    display: flex;
+    flex-direction: column;
+
+    .wrapper_opasity {
+        // height: 100vh;
+        // width: 100%;
+        // background-color: #00000090;
+        position: absolute;
+        z-index: 2;
+    }
+}
+
+p {
+    // width: 50%;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+    color: #000000;
+
+    z-index: 30;
+}
+
+.title {
+
+}
+
+.second_text {
+    font-size: 17px;
+}
