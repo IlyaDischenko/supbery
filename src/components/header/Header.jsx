@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import s from './Header.module.scss'
-
+import logowhite from './../../images/logoWhite.png'
 
 function Header() {
     
@@ -69,6 +69,10 @@ function Header() {
                     navigate('/menu')
                     setViewCategoryMenu(false) 
                 }}>Карта бара</div>
+                <div onClick={() => {
+                    navigate('/menu')
+                    setViewCategoryMenu(false) 
+                }}>Детское меню</div>
             </div>
             <div className={s.bg} onClick={onClose}></div>
             </>
@@ -124,31 +128,36 @@ function Header() {
                     <div className={s.main} onClick={() => {
                         navigate('/')
                         setViewMobileMenu(false)
+                        setViewCategoryMenu(false)
                     }  
-                       }>Главная</div>
+                       }><img src={logowhite} alt="Логотип" />Главная</div>
                     <div className={s.menu} onClick={() => {
                             setViewMobileMenu(false)
                             setViewCategoryMenu((v) => !v)  
                         }  
                         }>Меню</div>
                     <div className={s.deliver} onClick={() => {
-                        navigate('/deliver')
+                        navigate('/delivery')
                         setViewMobileMenu(false)
+                        setViewCategoryMenu(false)
                     }  
                         }>Доставка и оплата</div>
                     <div className={s.news} onClick={() => {
                         navigate('/news')
                         setViewMobileMenu(false)
+                        setViewCategoryMenu(false)
                     }  
                         }>Новости</div>
                     <div className={s.contact} onClick={() => {
                         navigate('/contact')
                         setViewMobileMenu(false)
+                        setViewCategoryMenu(false)
                     }  
                         }>Контакты</div>
                     <div className={s.about} onClick={() => {
                         navigate('/about')
                         setViewMobileMenu(false)
+                        setViewCategoryMenu(false)
                     }  
                         }>О ресторане</div>
                 </header>
@@ -158,11 +167,18 @@ function Header() {
         )
     } else if (windowSize[0] < 600) {
         return (
+            <>
             <header className={s.mobile}>
+                <div className={s.mobile_logo} onClick={() => navigate('/')}>
+                    <img src={logowhite} alt="Логотип" />
+                </div>
+                <div className={s.mobile_text} onClick={() => navigate('/')}><span>СУПBERRY</span></div>
                 <div className={s.mobile_menu} onClick={() => {setViewMobileMenu(!viewMobileMenu)}}><div></div><div></div><div></div></div>
                 {viewMobileMenu && mobile_menu()}
                 <Category opened={viewCategoryMenu} onClose={onClose} />
             </header>
+            <section className={s.placeholder}></section>
+            </>
         )
     }
 

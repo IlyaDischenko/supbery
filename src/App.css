@@ -1,8 +1,63 @@
+@font-face {
+  font-family: "Muller";
+  src: url(./../font/Fonts/Muller-Regular.otf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Muller";
+  src: url(./../font/Fonts/Muller-Medium.otf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Muller";
+  src: url(./../font/Fonts/Muller-Heavy.otf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Muller";
+  src: url(./../font/Fonts/Muller-Bold.otf);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Tinkov";
+  src: url(./../font/Fonts/Radomir\ Tinkov\ -\ QanelasSoft-Light.otf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Tinkov";
+  src: url(./../font/Fonts/Radomir\ Tinkov\ -\ QanelasSoft-Regular.otf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Tinkov";
+  src: url(./../font/Fonts/Radomir\ Tinkov\ -\ QanelasSoft-Medium.otf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Tinkov";
+  src: url(./../font/Fonts/Radomir\ Tinkov\ -\ QanelasSoft-Heavy.otf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Tinkov";
+  src: url(./../font/Fonts/Radomir\ Tinkov\ -\ QanelasSoft-Bold.otf);
+  font-weight: 800;
+}
+
 * {
   padding: 0;
   margin: 0;
   list-style: none;
   outline: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tinkov';
+  font-weight: 500;
   box-sizing: border-box;
 }
