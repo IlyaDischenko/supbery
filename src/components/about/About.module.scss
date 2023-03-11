@@ -1,40 +1,53 @@
 .main {
-    height: 100vh;
+    background-color: #ffffff;
+    margin: 20px 20px 0px 20px;
+    padding: 80px;
     width: 100%;
+    overflow-y: scroll;
 
-    padding: 80px 16px 10px;
-    // background-image: url("https://chef.ru/wp-content/uploads/2022/02/img_8759-scaled.jpg");
-    // background-image: url("./../../images/mainPhoto2.jpg");
-    // background-repeat: repeat;
-    // background-position: bottom center;
-    // background-size: contain;
-    
-    display: flex;
-    flex-direction: column;
+    @media screen and (max-width: 999px) {
+        width: calc(100% - 30px);
+        margin: 15px 15px 0px 15px;
+        padding: 60px;
+        border-bottom: 15px solid rgba(168, 168, 168, 0.527);
+    }
 
-    .wrapper_opasity {
-        // height: 100vh;
-        // width: 100%;
-        // background-color: #00000090;
-        position: absolute;
-        z-index: 2;
+    @media screen and (max-width: 458px) {
+        width: calc(100% - 20px);
+        padding: 40px;
+        margin: 10px 10px 10px 10px;
     }
 }
 
-p {
-    // width: 50%;
-    font-size: 25px;
-    margin-bottom: 20px;
-
-    color: #000000;
-
-    z-index: 30;
-}
-
 .title {
+    font-size: 42px;
+    font-weight: 400;
 
+    padding-bottom: 35px;
+
+    border-bottom: 1px solid #d3d3d3;
+
+    @media screen and (max-width: 458px) {
+        font-size: 35px;
+    }
 }
 
-.second_text {
-    font-size: 17px;
+.subtitle {
+    margin-top: 30px;
+}
+
+.firsttext {
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.photo1 {
+    width: 100%;
+
+    margin-top: 25px;
+}
+
+.secondtext {
+    font-weight: 300;
+    margin-top: 30px;
 }
