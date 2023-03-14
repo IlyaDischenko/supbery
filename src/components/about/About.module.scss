@@ -1,9 +1,10 @@
 .main {
     background-color: #ffffff;
-    margin: 20px 20px 0px 20px;
+    margin: 20px 20px 20px 290px;
     padding: 80px;
     width: 100%;
-    overflow-y: scroll;
+    max-width: 1200px;
+
 
     @media screen and (max-width: 999px) {
         width: calc(100% - 30px);

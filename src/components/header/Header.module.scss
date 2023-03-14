@@ -5,14 +5,8 @@ header {
     top: 0px;
     left: 0px;
 
+    position: fixed;
 }
-
-.placeholder {
-    height: 100vh;
-    width: 270px;
-    left: 0;
-}
-
 
 .wrapper {
     width: 100%;
@@ -145,7 +139,8 @@ header {
 
     .mobile_logo_img {
         margin: auto;
-        height: calc(100% - 20px);
+        // height: calc(100% - 20px);
+        width: 60px;
     }
 }
 
@@ -181,6 +176,25 @@ header {
     background-color: #696969;
     top: 0px;
     z-index: 1000;
+
+    div {
+        cursor: pointer;
+        color: #aeaeae;
+        font-size: 30px;
+        padding: 10px 0px 20px 20px;
+
+        font-weight: 300;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &:first-child {
+            margin-top: 80px;
+        }
+    }
+
+
 }
 
 .close_category {
@@ -219,6 +233,6 @@ header {
             transform: rotate(-45deg);
         }
     }
-
-
 }
+
+

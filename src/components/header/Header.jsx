@@ -32,6 +32,7 @@ function Header() {
                 <section className={s.wrapper_category}
                     onMouseEnter={() => setIsMenuOpen(true)}
                     onMouseLeave={() => setIsMenuOpen(false)}
+                    onClick={() => navigate('/menu')}
                 >
                     <div className={s.cetegory}>
                         <p>Всё меню</p>
@@ -50,6 +51,12 @@ function Header() {
     
     }
 
+    function DRYnav(nav) {
+        navigate(nav)
+        setIsMobileMenuOpen(false)
+        setIsMenuOpen(false)
+    }
+
 
     function MobileMenu({isMobileOpen}) {
         if (!isMobileOpen) return "";
@@ -57,7 +64,12 @@ function Header() {
         return (
             <>
             <section className={s.mobile_category}>
-
+                <div onClick={() => DRYnav('/')}>Главная</div>
+                <div onClick={() => DRYnav('/about')}>О ресторане</div>
+                <div onClick={() => DRYnav('/menu')}>Меню</div>
+                <div onClick={() => DRYnav('/news')}>Новости</div>
+                <div onClick={() => DRYnav('/deliver')}>Доставка</div>
+                <div onClick={() => DRYnav('/contact')}>Контакты</div>
             </section>
             <div className={s.close_category} onClick={() => setIsMobileMenuOpen(false)}><div></div><div></div></div>
             </>
@@ -92,7 +104,6 @@ function Header() {
                         <span>+7 920 114-52-64</span>
                     </div>
                 </div>
-            <div className={s.placeholder}></div>
 
             </header>
             <Category isOpen={isMenuOpen}/> 
